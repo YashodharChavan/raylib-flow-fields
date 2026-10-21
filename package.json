@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "noisejs": "^2.1.0",
+    "perlin-noise": "^0.0.1",
+    "raylib": "^0.14.0"
+  }
+}
