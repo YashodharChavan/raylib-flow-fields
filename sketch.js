@@ -6,6 +6,7 @@ function setup() {
         windowWidth: 1000,
         windowHeight: 800,
         distance: 50,
+        color: r.WHITE,
     };
 
     world.noise = new Noise(Math.random());
@@ -45,9 +46,6 @@ function plotPointsEvenly(world) {
         for (let row = 0; row < rowLimit; row++) {
             const point = world.points[col][row];
 
-            const pointX = point.x;
-            const pointY = point.y;
-
             const scale = 0.005;
 
             const noiseValue = world.noise.perlin2(
@@ -56,8 +54,9 @@ function plotPointsEvenly(world) {
             );
 
             const angle = noiseValue * 2 * Math.PI;
+            const color = r.ColorAlpha(world.color, 0.25);
 
-            r.DrawCircle(pointX, pointY, 2, r.ColorAlpha(r.WHITE, 0.75));
+            r.DrawCircle(point.x, point.y, 2, color);
             point.x += Math.cos(angle);
             point.y += Math.sin(angle);
         }
